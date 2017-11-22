@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="TweenMax.min.js"></script>
+    <script src="app.js"></script>
+    <script src="directives.js"></script>
+</head>
+<body ng-app="app" ng-controller="test">
+<div class="container">
+    <video width="100%" id="video" ng-click="control.play()">
+        <source src="asset/506401051_1.mov" type="video/mp4">
+    </video>
+    <div class="text"
+         gsap-animate="to",
+         duration="16"
+         motion="animation.main"
+         id="main"
+         control="control.bind(tween,name)"
+         ng-click="showAnswer=!showAnswer"
+    >How high can Eagles fly?</div>
+    <div class="answerbox" ng-if="showAnswer" gsap-animate="from" motion="animation.answer" control="control.bind(tween)">
+        It depends! <br>The Bald Eagle, for example, glides at altitudes of up to 10,000 feet.
+    </div>
+    <div class="controls">
+        <button ng-click="control.restart()">restart</button>
+        <button ng-click="control.play()">play/pause</button>
+        <span ng-bind="control.timer"></span>
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>

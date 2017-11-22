@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Nothing+You+Could+Do');
+html,body{
+    margin:0;
+    padding:0;
+    font-family: 'Nothing You Could Do', cursive;
+    color:white;
+
+}
+.text{
+    width:35%;
+    left:50px;
+    top: 10px;
+    color:white;
+    position: absolute;
+    opacity:0;
+    font-size: 38px;
+    cursor: pointer;
+}
+.answerbox {
+    padding:12px;
+    border-radius:0 10px 10px 10px;
+    border-color: rgba(0,0,0,.9);
+    background-color: rgba(0,0,0,.7);
+    position: absolute;
+    bottom: 60px;
+    left:8px;
+    font-size: 24px;
+}
+.controls{
+    position:absolute;
+    bottom:30px;
+    right:0;
+    width: 30%;
+}
+.container{
+    position:relative;
+}
