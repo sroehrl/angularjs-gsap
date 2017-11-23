@@ -1,28 +1,28 @@
-app.directive('gsapAnimate',function($timeout){
+app.directive('gsapAnimate',['$timeout','animate',function($timeout,animate){
     return {
         restrict:'A',
         scope:{
-            motion:'=?',
-            duration:'=?',
-            control:'&?'
+            gsapAnimate:'=',
+            relation:'='
         },
         link:function(scope,ele,attrs){
-            if(typeof scope.motion === 'undefined'){
-                scope.motion = {ease:easeIn};
+            var animation = scope.gsapAnimate;
+            if(typeof animation.duration === 'undefined'){
+                animation.duration = .5;
             }
-            if(typeof scope.duration === 'undefined'){
-                scope.duration = .5;
+            if(typeof animation.animate === 'undefined'){
+                animation.animate = {ease: Power2.easeOut};
             }
-            var tween = TweenMax[attrs.gsapAnimate](ele,scope.duration,scope.motion);
-            console.log(tween);
+            var tween = TweenMax[animation.action](ele,animation.duration,animation.animate);
             $timeout(function(){
-                scope.control({tween:tween,name:attrs.id});
+                if(typeof scope.relation !=='undefined'){
+                    animate.register(scope.relation);
+                }
+
+                animate.bind(tween,animation.keyFrames);
             },100);
 
 
         }
     }
-});
-app.directive('gsapTimeline',function(){
-
-});
+}]);
