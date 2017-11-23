@@ -55,12 +55,11 @@ app.factory('animate',function(){
             if(this.media.paused){
                 this.media.play();
                 this.allTweens('resume');
-                this.playing = true;
             } else {
                 this.media.pause();
                 this.allTweens('pause');
-                this.playing = false;
             }
+            this.playing = !this.media.paused;
         },
         restart:function(){
             this.media.currentTime = 0;
