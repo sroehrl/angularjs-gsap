@@ -23,13 +23,9 @@ HTML
     Fly in 2 sec into the video
 </div>
 ```
-Controller
+In Controller
 ```javascript
-app.controller('test',function($scope,animate){
-    // scope the video element
-    $scope.video = document.getElementById('video');
-    
-    // defined animation
+// defined animation
     $scope.animation ={
         animate:{
             scale:1.5,
@@ -46,7 +42,6 @@ app.controller('test',function($scope,animate){
     $scope.play = function(){
         animate.play();
     }
-});
 ```
 
 **Animation-Object**
