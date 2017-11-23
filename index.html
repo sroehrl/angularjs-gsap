@@ -12,12 +12,11 @@
 </head>
 <body ng-app="app" ng-controller="test">
 <div class="container">
-    <video width="100%" id="video" ng-click="control.play()">
+    <video width="100%" id="video" ng-click="control.play()" gsap-master>
         <source src="asset/506401051_1.mov" type="video/mp4">
     </video>
     <div class="text"
          gsap-animate="animation.main"
-         relation="video"
          ng-click="showAnswer=!showAnswer"
     >How high can Eagles fly?</div>
     <div class="answerbox" ng-if="showAnswer" gsap-animate="animation.answer">

@@ -21,8 +21,14 @@ app.directive('gsapAnimate',['$timeout','animate',function($timeout,animate){
 
                 animate.bind(tween,animation.keyFrames);
             },100);
-
-
+        }
+    }
+}]);
+app.directive('gsapMaster',['animate',function(animate){
+    return {
+        restrict:'A',
+        link:function(scope,ele,attrs){
+            animate.register(ele[0]);
         }
     }
 }]);
